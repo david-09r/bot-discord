@@ -2,8 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { Client, GatewayIntentBits, Collection, Events, EmbedBuilder } = require("discord.js");
 const embedRules = require("./components/embed/rules.js");
-const dotenv = require("dotenv");
-dotenv.config();
+const config = require("./config/client.json")
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
@@ -51,6 +50,6 @@ client.on(Events.GuildMemberAdd, member => {
 	member.user.send({ embeds: [rules]});
 });
 
-client.login(process.env.API_KEY).then((response) => {
+client.login(config.API_KEY).then((response) => {
   console.log("Bot is online!");
 });
