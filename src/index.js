@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { Client, GatewayIntentBits, Collection, Events, EmbedBuilder } = require("discord.js");
-const embedBuilder = require("./embeds/embeds.js");
+const embedRules = require("./components/embed/rules.js");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -9,7 +9,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 
 client.commands = new Collection();
 
-const foldersPath = path.join(__dirname, "commands/primary");
+const foldersPath = path.join(__dirname, "commands");
 const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
@@ -46,12 +46,9 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.on(Events.GuildMemberAdd, member => {
-	const embed = embedBuilder();
-	member.user.send({ embeds: [embed]});
-});
-
-client.on(Events.GuildMemberRemove, member => {
-	console.log("sale");
+	const rules = embedRules();
+	member.user.send(`**Hola ${member.user.username},  bienvenido a mi discord, estas son algunas de las reglas:**`);
+	member.user.send({ embeds: [rules]});
 });
 
 client.login(process.env.API_KEY).then((response) => {

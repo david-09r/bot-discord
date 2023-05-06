@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
 
-function embedBuilder() {
+function embedRules() {
   const embedBuilderJson = {
     color: 0x0099ff,
     title: "Reglas de servidor",
@@ -46,4 +46,4 @@ function embedBuilder() {
   return embedBuilderJson;
 }
 
-module.exports = embedBuilder;
+module.exports = embedRules;
