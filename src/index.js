@@ -47,11 +47,8 @@ client.on(Events.InteractionCreate, async interaction => {
 
 client.on(Events.GuildMemberAdd, member => {
 	const rules = embedRules();
+	member.user.send(`**Hola ${member.user.username},  bienvenido a mi discord, estas son algunas de las reglas:**`);
 	member.user.send({ embeds: [rules]});
-});
-
-client.on(Events.GuildMemberRemove, member => {
-	console.log("sale");
 });
 
 client.login(process.env.API_KEY).then((response) => {
