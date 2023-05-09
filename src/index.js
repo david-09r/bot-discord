@@ -2,7 +2,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { Client, GatewayIntentBits, Collection, Events, EmbedBuilder } = require("discord.js");
 const embedRules = require("./components/embed/rules.js");
-const config = require("./config/client.json")
+const config = require("./config/client.json");
+const embedWelcome = require("./components/embed/welcome.js");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
@@ -45,9 +46,9 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 client.on(Events.GuildMemberAdd, member => {
+	const welcome = embedWelcome(member.user.username);
 	const rules = embedRules();
-	member.user.send(`**Hola ${member.user.username},  bienvenido a mi discord, estas son algunas de las reglas:**`);
-	member.user.send({ embeds: [rules]});
+	member.user.send({ embeds: [welcome, rules] });
 });
 
 client.login(config.API_KEY).then((response) => {

@@ -1,9 +1,9 @@
 const { EmbedBuilder } = require("discord.js");
 
-function embedRules() {
+function embedWelcome(userName) {
   const embedBuilderJson = {
     color: 0x0099ff,
-    title: "Reglas de servidor",
+    title: `Hola ${userName}`,
     author: {
       name: 'Fepo R',
       icon_url: 'https://cdn.discordapp.com/emojis/1013557155951022130.webp?size=96&quality=lossless'
@@ -13,28 +13,28 @@ function embedRules() {
     },
     fields: [
       {
-        name: "📌1 ➡ Discusiones fuera de control",
-        value: "Cualquier discusión que se salga de control será revisada por los administradores. Si se determina que alguien inició la discusión, esa persona será suspendida o advertida. Si sigues la discusión, también podrías ser sancionado.",
+        name: "",
+        value: " Bienvenido al server de Discord. Soy FepoT un bot exclusivo del server y estoy encargado de mostrarte todas las redes del Fepo, aquí tienes todas las redes del Fepo:",
         inline: false
       },
       {
-        name: "📌2 ➡ Canal de memes **📸┃memes-reacción**",
-        value: "El canal **📸┃memes-reacción** está destinado únicamente para compartir memes. No está permitido escribir comentarios en ese canal, pero sí puedes reaccionar a los memes con emojis. Los memes compartidos allí serán utilizados en futuros videos.",
+        name: "📌 Youtube ➡️",
+        value: "https://www.youtube.com/@FepoR",
         inline: false
       },
       {
-        name: "📌3  ➡  Eventos en comunidad",
-        value: "De vez en cuando organizamos eventos en los que jugamos y nos divertimos en comunidad. Si estás interesado en participar, te recomendamos unirte a nosotros.",
+        name: "📌 Twitch ➡️",
+        value: "https://www.twitch.tv/fepo__",
         inline: false
       },
       {
-        name: "📌4 ➡ Prohibición de spam",
-        value: "El spam no está permitido en el servidor y cualquier persona que lo envíe será suspendida permanentemente.",
+        name: "📌 Instagram ➡️",
+        value: "https://www.instagram.com/f.epo_r/",
         inline: false
       },
       {
-        name: "📌5 ➡  Nada de ✨NSFW✨",
-        value: "No está permitido compartir contenido NSFW en ningún canal del servidor, incluso en el canal #NSFW. Si alguien comparte ese tipo de contenido, será sancionado inmediatamente.",
+        name: "📌 Tiktok ➡️",
+        value: "https://www.tiktok.com/@fepo.r",
         inline: false
       }
     ],
@@ -46,4 +46,4 @@ function embedRules() {
   return embedBuilderJson;
 }
 
-module.exports = embedRules;
+module.exports = embedWelcome;

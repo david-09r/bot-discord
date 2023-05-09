@@ -5,7 +5,7 @@ const config = require("./config/client.json")
 
 const commands = [];
 // Grab all the command folders from the commands directory you created earlier
-const foldersPath = path.join(__dirname, 'slashcommands');
+const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
@@ -26,6 +26,8 @@ for (const folder of commandFolders) {
 
 // Construct and prepare an instance of the REST module
 const rest = new REST().setToken(config.API_KEY);
+
+// rest.delete(Routes.applicationCommand(config.CLIENT_ID, '1008101729486766170')).then(() => console.log("Successfully deleted the command")).catch(console.error);
 
 // and deploy your commands!
 (async () => {
