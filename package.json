@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "commands": "node src/deploy.js"
+    "start": "node src/deploy.js && nodemon src/index.js",
+    "commands-prod": "node src/deploy-prod.js"
   },
   "keywords": [],
   "author": "",
